@@ -303,4 +303,4 @@ app.listen(PORT, () => {
   console.log(`📊 Supabase: ${SUPABASE_URL ? "OK" : "❌"}`);
   console.log(`🔗 Pluggy:   ${PLUGGY_CLIENT_ID ? "OK" : "❌"}`);
   console.log(`🤖 Claude:   ${ANTHROPIC_API_KEY ? "OK" : "❌"}`);
-});
+}); 
