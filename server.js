@@ -4,7 +4,10 @@
  * Deploy: Railway
  */
 
-if (process.env.NODE_ENV !== "production") require("dotenv").config();
+require("dotenv").config();
+const SUPABASE_URL = process.env.SUPABASE_URL;
+const SUPABASE_SERVICE_KEY = process.env.SUPABASE_SERVICE_KEY;
+console.log("SUPABASE_URL:", SUPABASE_URL ? "OK" : "MISSING");
 const express      = require("express");
 const cors         = require("cors");
 const axios        = require("axios");
