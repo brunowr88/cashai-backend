@@ -1,4 +1,5 @@
 require("dotenv").config();
+const ws = require("ws");
 
 const express      = require("express");
 const cors         = require("cors");
@@ -27,7 +28,9 @@ if (!SUPABASE_URL || !SUPABASE_SERVICE_KEY) {
 const app  = express();
 const PORT = process.env.PORT || 3001;
 
-const supabase = createClient(SUPABASE_URL, SUPABASE_SERVICE_KEY);
+const supabase = createClient(SUPABASE_URL, SUPABASE_SERVICE_KEY, {
+  realtime: { transport: ws }
+});
 const claude   = new Anthropic({ apiKey: ANTHROPIC_API_KEY });
 
 app.use(cors({ origin: process.env.FRONTEND_URL || "*", credentials: true }));
